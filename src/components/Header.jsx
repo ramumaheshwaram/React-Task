@@ -3,11 +3,15 @@ import { NavLink } from 'react-router-dom'
 import '../../src/index.css'
 import './Header.css'
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export const Header = () => {
+  const location = useLocation();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCompany, setIsCompany] = useState(false)
+  const [isCompany, setIsCompany] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const isHome = location.pathname === "/";
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -36,54 +40,82 @@ export const Header = () => {
             </div>
           </div>
         </div>
-        <div className='main-header bg-transprent  w-full pl-13 flex justify-start items-center gap-10 h-28 z-10 max-md:h-20'>
+        <div className={`main-header bg-transprent  w-full pl-13 flex justify-start items-center gap-10 h-28 z-10 max-md:h-20
+         ${isHome ? "header-home" : "header-inner"} `}>
           <div className='max-sm-w-full'>
-            <a href="#">
-              <img src="logo.png" alt="logo" className='w-50 sm-w-24 h-auto' />
+            <a href="/">
+              <img
+                src={isHome ? "/logo.png" : "/logo.png"}
+                alt="logo"
+                className="w-50 sm-w-10 h-auto"
+              />
             </a>
 
           </div>
           <div className='w-full '>
-            <nav className='w-full max-[100%] flex justify-center  max-[1240px]:hidden '>
+            <nav className="w-full max-[100%] flex justify-center  max-[1240px]:hidden ">
               <ul className="flex justify-between">
                 <li>
-                  <NavLink to="/" className="nav-link">
+                  <NavLink
+                    to="/"
+                    className={`nav-link ${!isHome ? "nav-dark" : ""}`}
+                  >
                     Home
                   </NavLink>
                 </li>
 
                 <li
-                    className="relative"
-                    onMouseEnter={() => setIsCompany(true)}
-                    onMouseLeave={() => setIsCompany(false)}
-                  >
-                    <span className="nav-link block cursor-pointer">
-                        Company ▾
-                      </span>
+                  className="relative"
+                  onMouseEnter={() => setIsCompany(true)}
+                  onMouseLeave={() => setIsCompany(false)}
+                >
+                  <span className={`nav-link font-semibold text-base1 block cursor-pointer ${!isHome ? "nav-dark" : ""}`}>
+                    Company ▾
+                  </span>
 
-                    {isCompany && (
-                      <ul className="absolute left-0  bg-white shadow-lg min-w-[180px] ">
-                        <li className="px-4 py-2 hover:bg-gray-100">
-                          <NavLink to="/about">About Us</NavLink>
-                        </li>
-                        <li className="px-4 py-2 hover:bg-gray-100">
-                          <a href="safety.html">Safety</a>
-                        </li>
-                        <li className="px-4 py-2 hover:bg-gray-100">
-                          <a href="careers.html">Careers</a>
-                        </li>
-                      </ul>
-                    )}
-                  </li>
+                  {isCompany && (
+                    <ul className="absolute left-0  bg-white shadow-lg min-w-[180px] ">
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <NavLink to="/about">About Us</NavLink>
+                      </li>
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <NavLink to="/safety">Safety</NavLink>
+                      </li>
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <NavLink to="/careers">Careers</NavLink>
+                      </li>
+                    </ul>
+                  )}
+                </li>
+                <li
+                  className="relative"
+                  onMouseEnter={() => setIsServicesOpen(true)}
+                  onMouseLeave={() => setIsServicesOpen(false)}
+                >
+                  <span className={`nav-link font-semibold text-base1 block cursor-pointer ${!isHome ? "nav-dark" : ""}`}>
+                    Services ▾
+                  </span>
 
-                <li>
-                  <NavLink to="/services" className="nav-link">
-                    Services
-                  </NavLink>
+                  {isServicesOpen && (
+                    <ul className="absolute left-0 bg-white shadow-lg min-w-[180px] z-50">
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <a href="school.html">School Transportation</a>
+                      </li>
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <a href="staff.html">Staff Transportation</a>
+                      </li>
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <a href="hotel.html">Hotel Transportation</a>
+                      </li>
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <a href="passenger.html">Passenger Transportation</a>
+                      </li>
+                    </ul>
+                  )}
                 </li>
 
                 <li>
-                  <NavLink to="/contact" className="nav-link">
+                  <NavLink to="/contact" className={`nav-link ${!isHome ? "nav-dark" : ""}`}>
                     Contact
                   </NavLink>
                 </li>
@@ -113,13 +145,41 @@ export const Header = () => {
           >
             <ul className="flex flex-col gap-5 p-6 text-sm">
               <li className='hero-li'>
-                <a
-                  href="#"
+                <NavLink
+                  href="/"
                   onClick={() => setIsMenuOpen(false)}
                   className="hover:text-gray-300"
                 >
                   Home
-                </a>
+                </NavLink>
+                <li
+                  className="relative"
+                  onMouseEnter={() => setIsCompany(true)}
+                  onMouseLeave={() => setIsCompany(false)}
+                >
+                  <span className={`nav-link font-semibold text-base1 block cursor-pointer ${!isHome ? "nav-dark" : ""}`}>
+                    Company ▾
+                  </span>
+
+                  {isCompany && (
+                    <ul className="absolute left-0  bg-white shadow-lg min-w-[180px] ">
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <NavLink to="/about"
+                          onClick={() => setIsMenuOpen(false)}
+                        >About Us</NavLink>
+                      </li>
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <NavLink to="/safety"
+                          onClick={() => setIsMenuOpen(false)}
+                        >Safety</NavLink>
+                      </li>
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <NavLink to="/careers"
+                          onClick={() => setIsMenuOpen(false)}>Careers</NavLink>
+                      </li>
+                    </ul>
+                  )}
+                </li>
               </li>
             </ul>
           </div>
@@ -129,6 +189,6 @@ export const Header = () => {
 
 
 
-    </header>
+    </header >
   )
 }

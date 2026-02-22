@@ -1,0 +1,40 @@
+.cms-eptitle-overlay {
+  position: relative;
+  /* IMPORTANT */
+}
+
+.cms-eptitle-overlay::before,
+.cms-eptitle-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  /* Put overlay behind content */
+}
+
+.cms-eptitle-overlay::before {
+  background-color: rgba(46, 49, 146, 0.45);
+}
+
+.cms-eptitle-overlay::after {
+  background: linear-gradient(to bottom,
+      #eeb52a 0%,
+      #eeb52a 19%,
+      transparent 65%);
+  opacity: 0.65;
+}
+
+.map {
+  position: relative;
+}
+
+.map::before {
+  content: '';
+  background-attachment: scroll;
+  background-image: url('/world-map-white.webp');
+  --background-overlay: '';
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: auto;
+
+}

@@ -14,7 +14,7 @@
   left: 0;
   width: 22px;
   height: 48px;
-  background-color: #2e3192;
+  background-color: #2e3192 !important;
   clip-path: polygon(0 70.8333%, 0 0, 100% 29.1667%, 100% 100%);
 }
 

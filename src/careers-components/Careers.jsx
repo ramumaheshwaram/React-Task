@@ -1,14 +1,15 @@
 import React from 'react'
 import { Header } from '../components/Header.jsx'
-import { AboutMain } from './About-Main.jsx'
+import { CareersMain } from './Careers-Main.jsx'
 import { Footer } from '../components/Footer.jsx'
 
-export const About = () => {
+export const Carrers = () => {
   return (
     <>
       <Header />
-      <AboutMain />
+      <CareersMain />
       <Footer />
     </>
   )
 }
+
