@@ -1,0 +1,138 @@
+/* Swiper Base */
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+  display: block;
+
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex !important;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  height: auto;
+  /* Allow card to dictate height */
+  position: relative;
+  display: block;
+}
+
+/* Product Card Styling */
+.product-card {
+  background: transparent;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.product-image-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.product-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Hover Effects */
+.product-card:hover .product-image {
+  transform: scale(1.1);
+}
+
+.product-info {
+  background-color: #fff;
+  box-shadow: 0px 5px 32px 0px rgba(3, 15, 57, 0.12) !important;
+  padding: 3rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-right: 40px;
+}
+
+.price {
+  margin-top: auto;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2e3192;
+}
+
+/* Pagination Styling */
+.swiper-pagination {
+  position: absolute;
+  bottom: 50px;
+  left: 5px !important;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  gap: 12px;
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #EEB52A;
+  opacity: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Active bullet */
+.swiper-pagination-bullet-active {
+  background: #2e3192;
+}
+
+/* Outer ring */
+.swiper-pagination-bullet::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #2e3192;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Show ring on active */
+.swiper-pagination-bullet-active::after {
+  opacity: 1;
+}
+
+
+.product-info img {
+  width: 64px;
+  height: auto;
+}
+
+/* Simplified Responsive Overrides (No width forcing) */
+@media (max-width: 639px) {
+  .product-image {
+    height: 200px;
+  }
+}

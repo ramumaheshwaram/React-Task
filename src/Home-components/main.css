@@ -1,0 +1,262 @@
+/* PARALLAX SHAPE STYLES */
+.cms-moving {
+  position: relative;
+  width: 114px;
+  height: 180px;
+  z-index: 1;
+  will-change: transform;
+}
+
+.cms-moving-1::before {
+  content: "";
+  position: absolute;
+  top: -58px;
+  left: 0;
+  width: 22px;
+  height: 48px;
+  background-color: #2e3192;
+  clip-path: polygon(0 70.8333%, 0 0, 100% 29.1667%, 100% 100%);
+}
+
+.cms-moving-1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 114px;
+  height: 180px;
+  background-color: #f9f9f9;
+  clip-path: polygon(0 52.222%, 0 0, 100% 47.778%, 100% 100%);
+}
+
+/* SECTION 3 OVERLAY STYLES */
+.cms-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.cms-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #2e3192;
+  opacity: 0.8;
+  /* Adjusted for better readability */
+  z-index: 1;
+}
+
+.cms-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(222, 30, 27, 0) 0%,
+      rgba(222, 30, 27, 0.04) 3%,
+      rgba(238, 181, 42, 0.7) 80%);
+  z-index: 2;
+  pointer-events: none;
+  /* Allows interaction with cards underneath */
+}
+
+.cms-gradient {
+  position: relative;
+  overflow: hidden;
+}
+
+.cms-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #2e3192;
+  opacity: 0.75;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  transition: all 300ms linear 0ms;
+  z-index: 1;
+
+}
+
+.cms-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.95;
+  background: linear-gradient(to bottom, rgba(46, 49, 146, 0) 0%, rgba(46, 49, 146, 0) 20%, #2e3192 69%, #2e3192 100%);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  transition: all 300ms linear 0ms;
+  z-index: 2;
+  /* Allows interaction with cards underneath */
+}
+
+.cms-gradient1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.cms-gradient1::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #EEB52A;
+  opacity: 0.75;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  transition: all 300ms linear 0ms;
+  z-index: 1;
+
+}
+
+.cms-gradient1::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.95;
+  background: linear-gradient(to bottom, rgba(46, 49, 146, 0) 0%, rgba(46, 49, 146, 0) 20%, #EEB52A 69%, #EEB52A 100%);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  transition: all 300ms linear 0ms;
+  z-index: 2;
+  /* Allows interaction with cards underneath */
+}
+
+.box-178 {
+  position: relative;
+  width: 178px;
+  height: 178px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transition: all 300ms linear 0ms;
+}
+
+.box-88 {
+  width: 88px;
+  height: 88px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  background-color: #2e3192;
+  border-radius: 50%;
+}
+
+.cms--ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cms--ripple::before,
+.cms--ripple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid currentColor;
+  border-radius: inherit;
+  box-sizing: border-box;
+  transform: scale(0.4);
+  opacity: 0;
+  animation: ripple 2s ease-out infinite;
+}
+
+.cms--ripple::after {
+  animation-delay: 1s;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.8;
+  }
+
+  70% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+
+
+/* section 9 */
+
+.marquee-container {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  width: 100%;
+  background: #fff;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  /* Use a mask to fade the edges (optional, but looks professional on mobile) */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  /* Responsive gap: 30px on mobile, 60px on desktop */
+  gap: 30px;
+  animation: scroll-left 30s linear infinite;
+}
+
+.marquee-item {
+  /* Responsive height: 40px on mobile, 60px on desktop */
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Pause animation on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    /* Important: -50% works only if the content is exactly duplicated once */
+    transform: translateX(-50%);
+  }
+}
+
+/* Tablet and Desktop Adjustments */
+@media (max-width: 768px) {
+  .marquee-content {
+    gap: 5px;
+  }
+
+  .marquee-item {
+    height: 80px;
+  }
+}
