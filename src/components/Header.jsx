@@ -152,34 +152,7 @@ export const Header = () => {
                 >
                   Home
                 </NavLink>
-                <li
-                  className="relative"
-                  onMouseEnter={() => setIsCompany(true)}
-                  onMouseLeave={() => setIsCompany(false)}
-                >
-                  <span className={`nav-link font-semibold text-base1 block cursor-pointer ${!isHome ? "nav-dark" : ""}`}>
-                    Company ▾
-                  </span>
-
-                  {isCompany && (
-                    <ul className="absolute left-0  bg-white shadow-lg min-w-[180px] ">
-                      <li className="px-4 py-2 hover:bg-gray-100">
-                        <NavLink to="/about"
-                          onClick={() => setIsMenuOpen(false)}
-                        >About Us</NavLink>
-                      </li>
-                      <li className="px-4 py-2 hover:bg-gray-100">
-                        <NavLink to="/safety"
-                          onClick={() => setIsMenuOpen(false)}
-                        >Safety</NavLink>
-                      </li>
-                      <li className="px-4 py-2 hover:bg-gray-100">
-                        <NavLink to="/careers"
-                          onClick={() => setIsMenuOpen(false)}>Careers</NavLink>
-                      </li>
-                    </ul>
-                  )}
-                </li>
+               
               </li>
             </ul>
           </div>

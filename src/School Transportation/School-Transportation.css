@@ -1,0 +1,18 @@
+.transportation-overlay::before{
+    background-color: rgb(46 49 146 / 45%);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.transportation-overlay::after{
+    background-color: transparent;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
