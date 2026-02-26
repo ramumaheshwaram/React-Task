@@ -99,7 +99,7 @@ export const Header = () => {
                   {isServicesOpen && (
                     <ul className="absolute left-0 bg-white shadow-lg min-w-[180px] z-50">
                       <li className="px-4 py-2 hover:bg-gray-100">
-                        <a href="school.html">School Transportation</a>
+                        <NavLink to="/school-transportation">School Transportation</NavLink>
                       </li>
                       <li className="px-4 py-2 hover:bg-gray-100">
                         <a href="staff.html">Staff Transportation</a>
